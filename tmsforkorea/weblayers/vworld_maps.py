@@ -21,7 +21,7 @@ modified             : 2014-09-19 by Minpa Lee, mapplus at gmail.com
  ***************************************************************************/
 """
 
-from weblayer import WebLayer3857
+from .weblayer import WebLayer3857
 
 
 class OlVWorldMapsLayer(WebLayer3857):
@@ -52,3 +52,9 @@ class OlVWorldSatelliteLayer(OlVWorldMapsLayer):
 
     def __init__(self):
         OlVWorldMapsLayer.__init__(self, name='VWorld Satellite', html='vworld_satellite.html')
+
+
+class OlVWorldGrayLayer(OlVWorldMapsLayer):
+
+    def __init__(self):
+        OlVWorldMapsLayer.__init__(self, name='VWorld Gray', html='vworld_gray.html')

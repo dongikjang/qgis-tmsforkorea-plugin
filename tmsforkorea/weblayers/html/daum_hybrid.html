@@ -40,7 +40,9 @@
               loadEnd = true;
             }
             
-            var daumHybrid = new OpenLayers.Layer.DaumHybrid("Daum Hybrid Map",
+            var daumHybrid = new OpenLayers.Layer.DaumHybrid(
+              "Daum Hybrid Map",
+              "http://map0.daumcdn.net/map_hybrid/1806shn/L${z}/${y}/${x}.png",
               {
                 sphericalMercator: false,
                 isBaseLayer: false,
@@ -51,7 +53,9 @@
               }
             );
             
-            var daumSatellite = new OpenLayers.Layer.DaumSatellite("Daum Satellite Map",
+            var daumSatellite = new OpenLayers.Layer.DaumSatellite(
+              "Daum Satellite Map",
+              "http://map0.daumcdn.net/map_skyview/L${z}/${y}/${x}.jpg?v=160114",
               {
                 sphericalMercator: false,
                 isBaseLayer: true

@@ -39,7 +39,9 @@
               loadEnd = true;
             }
             
-            var daumSatellite = new OpenLayers.Layer.DaumSatellite("Daum Satellite Map",
+            var daumSatellite = new OpenLayers.Layer.DaumSatellite(
+              "Daum Satellite Map",
+              "http://map0.daumcdn.net/map_skyview/L${z}/${y}/${x}.jpg?v=160114",
               {
                 sphericalMercator: false,
                 eventListeners: {

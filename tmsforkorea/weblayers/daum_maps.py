@@ -21,8 +21,9 @@ modified             : 2014-09-19 by Minpa Lee, mapplus at gmail.com
  ***************************************************************************/
 """
 
-from qgis.core import QGis, QgsCoordinateReferenceSystem
-from weblayer import WebLayer
+from qgis.core import Qgis as QGis, QgsCoordinateReferenceSystem
+from .weblayer import WebLayer
+from .weblayer import WebLayer3857
 
 
 class WebLayerDaum5181(WebLayer):
@@ -44,7 +45,8 @@ class WebLayerDaum5181(WebLayer):
             idEpsgRSGoogle = epsg
             createCrs = coordRefSys.createFromEpsg(idEpsgRSGoogle)
         if not createCrs:
-            proj_def =  "+proj=tmerc +lat_0=38 +lon_0=127 +k=1 +x_0=200000 +y_0=500000 +ellps=GRS80 "
+            proj_def =  "+proj=tmerc +lat_0=38 +lon_0=127 +k=1 +x_0=200000 +\
+            y_0=500000 +ellps=GRS80 "
             proj_def += "+towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
             isOk = coordRefSys.createFromProj4(proj_def)
             if not isOk:
@@ -52,34 +54,54 @@ class WebLayerDaum5181(WebLayer):
         return coordRefSys
 
 
-class OlDaumMapsLayer(WebLayerDaum5181):
-
-    emitsLoadEnd = False
-
-    def __init__(self, name, html):
-        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png",
-                              name=name, html=html)
-
-
-class OlDaumStreetLayer(OlDaumMapsLayer):
-
-    def __init__(self):
-        OlDaumMapsLayer.__init__(self, name='Daum Street', html='daum_street.html')
+#class OlDaumMapsLayer(WebLayerDaum5181):
+#
+#    emitsLoadEnd = False
+#
+#    def __init__(self, name, html):
+#        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png",
+#                              name=name, html=html)
 
 
-class OlDaumHybridLayer(OlDaumMapsLayer):
+class OlDaumStreetLayer(WebLayerDaum5181):
+
+    emitsLoadEnd = True
 
     def __init__(self):
-        OlDaumMapsLayer.__init__(self, name='Daum Hybrid', html='daum_hybrid.html')
+        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png", 
+            name='Daum Street', html='daum_street.html')
 
 
-class OlDaumSatelliteLayer(OlDaumMapsLayer):
-
-    def __init__(self):
-        OlDaumMapsLayer.__init__(self, name='Daum Satellite', html='daum_satellite.html')
-
-
-class OlDaumPhysicalLayer(OlDaumMapsLayer):
+class OlDaumHybridLayer(WebLayerDaum5181):
+    emitsLoadEnd = True
 
     def __init__(self):
-        OlDaumMapsLayer.__init__(self, name='Daum Physical', html='daum_physical.html')
+        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png", 
+            name='Daum Hybrid', html='daum_hybrid.html')
+
+
+class OlDaumSatelliteLayer(WebLayerDaum5181):
+
+    emitsLoadEnd = True
+
+    def __init__(self):
+        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png", 
+            name='Daum Satellite', html='daum_satellite.html')
+
+
+class OlDaumPhysicalLayer(WebLayerDaum5181):
+    
+    emitsLoadEnd = True
+
+    def __init__(self):
+        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png", 
+            name='Daum Physical', html='daum_physical.html')
+
+
+class OlDaumCadstralLayer(WebLayerDaum5181):
+    
+    emitsLoadEnd = True
+
+    def __init__(self):
+        WebLayerDaum5181.__init__(self, groupName="Daum Maps", groupIcon="daum_icon.png", 
+            name='Daum Cadstral', html='daum_cadastral.html')

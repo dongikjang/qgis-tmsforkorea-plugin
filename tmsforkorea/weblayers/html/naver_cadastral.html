@@ -39,7 +39,9 @@
               loadEnd = true;
             }
             
-            var naverCadstral = new OpenLayers.Layer.NaverCadstral("NaverCadstralMap",
+            var naverCadstral = new OpenLayers.Layer.NaverCadstral(
+              "NaverCadstralMap",
+              "http://onetile1.map.naver.net/get/194/0/0/${z}/${x}/${y}/empty/ol_lp_cn",
               {
                 sphericalMercator: false,
                 opacity: 0.75,

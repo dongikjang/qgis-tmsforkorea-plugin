@@ -40,7 +40,9 @@
               loadEnd = true;
             }
             
-            var daumStreet = new OpenLayers.Layer.DaumStreet("Daum Street Map",
+            var daumStreet = new OpenLayers.Layer.DaumStreet(
+              "Daum Street Map",
+              "http://map0.daumcdn.net/map_2d/1806shn/L${z}/${y}/${x}.png",
               {
                 sphericalMercator: false,
                 isBaseLayer: true,
@@ -51,7 +53,9 @@
               }
             );
             
-            var daumPhysical = new OpenLayers.Layer.DaumPhysical("Daum Physical Map",
+            var daumPhysical = new OpenLayers.Layer.DaumPhysical(
+              "Daum Physical Map",
+              "http://map0.daumcdn.net/map_shaded_relief/3.00/L${z}/${y}/${x}.png",
               {
                 sphericalMercator: false,
                 isBaseLayer: false,

@@ -39,7 +39,9 @@
               loadEnd = true;
             }
             
-            var naverSatellite = new OpenLayers.Layer.NaverSatellite("NaverSatelliteMap",
+            var naverSatellite = new OpenLayers.Layer.NaverSatellite(
+              "NaverSatelliteMap",
+              "http://onetile1.map.naver.net/get/194/0/1/${z}/${x}/${y}/bl_st_bg",
               {
                 sphericalMercator: false,
                 eventListeners: {

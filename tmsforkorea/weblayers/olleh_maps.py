@@ -21,8 +21,8 @@ modified             : 2014-09-19 by Minpa Lee, mapplus at gmail.com
  ***************************************************************************/
 """
 
-from qgis.core import QGis, QgsCoordinateReferenceSystem
-from weblayer import WebLayer
+from qgis.core import Qgis as QGis, QgsCoordinateReferenceSystem
+from .weblayer import WebLayer
 
 
 class WebLayerOlleh5179(WebLayer):
@@ -44,7 +44,8 @@ class WebLayerOlleh5179(WebLayer):
             idEpsgRSGoogle = epsg
             createCrs = coordRefSys.createFromEpsg(idEpsgRSGoogle)
         if not createCrs:
-            proj_def =  "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 "
+            proj_def =  "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +\
+            x_0=1000000 +y_0=2000000 +ellps=GRS80 "
             proj_def += "+towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
             isOk = coordRefSys.createFromProj4(proj_def)
             if not isOk:
@@ -83,3 +84,9 @@ class OlOllehPhysicalLayer(OlOllehMapsLayer):
 
     def __init__(self):
         OlOllehMapsLayer.__init__(self, name='Olleh Physical', html='olleh_physical.html')
+
+
+class OlOllehCadstralLayer(OlOllehMapsLayer):
+
+    def __init__(self):
+        OlOllehMapsLayer.__init__(self, name='Olleh Cadstral', html='olleh_cadastral.html')

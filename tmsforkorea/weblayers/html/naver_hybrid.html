@@ -39,7 +39,9 @@
               loadEnd = true;
             }
             
-            var naverHybrid = new OpenLayers.Layer.NaverHybrid("NaverHybridMap",
+            var naverHybrid = new OpenLayers.Layer.NaverHybrid(
+              "NaverHybridMap",
+              "http://onetile1.map.naver.net/get/194/0/0/${z}/${x}/${y}/empty/ol_st_rd/ol_st_an",
               {
                 sphericalMercator: false,
                 eventListeners: {

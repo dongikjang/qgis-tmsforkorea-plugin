@@ -39,7 +39,9 @@
               loadEnd = true;
             }
             
-            var naverPhysical = new OpenLayers.Layer.NaverPhysical("NaverPhysicalMap",
+            var naverPhysical = new OpenLayers.Layer.NaverPhysical(
+              "NaverPhysicalMap",
+              "http://onetile1.map.naver.net/get/194/0/0/${z}/${x}/${y}/bl_tn_bg/ol_vc_bg/ol_vc_an",
               {
                 sphericalMercator: false,
                 eventListeners: {

@@ -25,7 +25,8 @@
               units: "m",
               maxResolution: 2048,
               numZoomLevels: 14,
-              maxExtent: new OpenLayers.Bounds(-30000, -60000, 494288, 988576)
+              maxExtent: new OpenLayers.Bounds(-30000, -60000, 494288, 988576),
+              adjustZoom: function(zoom) { return zoom; }
             });
 
             loadEnd = false;
@@ -39,7 +40,9 @@
               loadEnd = true;
             }
             
-            var daumStreet = new OpenLayers.Layer.DaumStreet("Daum Street Map",
+            var daumStreet = new OpenLayers.Layer.DaumStreet(
+              "Daum Street Map",
+              "http://map0.daumcdn.net/map_2d/1806shn/L${z}/${y}/${x}.png",
               {
                 sphericalMercator: false,
                 eventListeners: {
