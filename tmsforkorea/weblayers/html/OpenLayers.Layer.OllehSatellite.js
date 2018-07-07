@@ -11,7 +11,7 @@ OpenLayers.Layer.OllehSatellite = OpenLayers.Class(OpenLayers.Layer.XYZ, {
 
     name: "OllehSatelliteMap",
     url: [
-        "http://map.ktgis.com/ServiceAir/version20110705/l${z}/r${y}/c${x}.jpg"
+        "http://tile.gis.kt.com/current/base.satellite/l${z}/r${y}/c${x}.jpg"
     ],
     
     resolutions: [2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5],
