@@ -14,7 +14,7 @@ QGIS Plugins for Korean users
 Gallery
 ---------
 
-![screenshot](https://github.com/mapplus/qgis-tmsforkorea-plugin/blob/master/images/tmsforkorea_overview.png?width=800)
+![screenshot](https://github.com/dongikjang/qgis-tmsforkorea-plugin/blob/master/images/tmsforkorea_overview.png?width=800)
 
 
 
