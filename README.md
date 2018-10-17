@@ -4,6 +4,7 @@ qgis-tmsforkorea-plugin (for QGIS3)
 
 QGIS Plugins for Korean users
 ------------------------------
+ - TMSKoera 플러그인을 QGIS3에 버전에 맞게 수정한 자료입니다(주로 QT 버전 교체). 
  - Updated for QGIS 3
  - Daum(Street, Satellite, Hybrid, Physical) Maps
  - Naver(Street, Satellite, Hybrid, Physical, Cadstral) Maps
